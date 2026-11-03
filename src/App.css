@@ -1,48 +1,114 @@
-#root {
-  max-width: 1280px;
+/* ===== Grund ===== */
+:root {
+  --bg: #0f1115;
+  --surface: #1a1d24;
+  --surface-hover: #22262f;
+  --text: #e8e9ec;
+  --text-muted: #9aa0ab;
+  --accent: #1db954;
+  --radius: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ===== App ===== */
+.App {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 3rem 1.5rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App h1 {
+  margin: 0 0 2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ===== AlbumList ===== */
+.AlbumList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.AlbumList > h3 {
+  grid-column: 1 / -1; /* rubriken tar hela bredden */
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
 }
 
-.card {
-  padding: 2em;
+/* ===== Album ===== */
+.Album {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  transition: background 0.2s, transform 0.2s;
 }
 
-.read-the-docs {
-  color: #888;
+.Album:hover {
+  background: var(--surface-hover);
+  transform: translateY(-4px);
+}
+
+/* "Omslag" gjort med CSS */
+.Album::before {
+  content: "";
+  display: block;
+  aspect-ratio: 1;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), #0b5e2c);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .Album-title {
-  border:2px solid white;
-  border-radius:4px;
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* Låtlista med numrering */
+.Album ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: track;
+}
+
+.Album li {
+  counter-increment: track;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
   cursor: pointer;
+}
+
+.Album li::before {
+  content: counter(track);
+  min-width: 1.25rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.Album li:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
 }
