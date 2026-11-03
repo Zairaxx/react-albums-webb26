@@ -2,7 +2,7 @@ import './App.css'
 import AlbumList from "./components/AlbumList";
 
 function App() {
-  const myAlbums = [{
+    const myAlbums = [{
     name: "Seasons",
     tracks: ["Spring","Summer","Autumn","Winter"]
   },
