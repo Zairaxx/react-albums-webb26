@@ -1,12 +1,19 @@
-export default function Album() {
+import { useState } from "react";
+
+export default function Album({name,tracks}) {
+
+  const [show,setShow] = useState(true);
+
     return (
       <div className="Album">
-        <h3 className="Album-title">Albumets namn</h3>
-        <ul>
-          <li>Låt 1</li>
-          <li>Låt 2</li>
-          <li>Låt 3</li>
-        </ul>
+        <button onClick={() => {setShow(!show)}}>{show ? "Dölj" : "Visa"} album</button>
+        { show && <>
+          <h3 className="Album-title">{name}</h3> 
+          <ul>
+            {tracks.map((track,i) => <li key={i}>{track}</li>)}
+          </ul>
+        </>
+        }
       </div>
     );
 }

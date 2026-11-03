@@ -1,12 +1,10 @@
 import Album from "./Album";
 
-export default function AlbumList() {
+export default function AlbumList({albums}) {
   return (
     <div className="AlbumList">
       <h3>Album List</h3>
-      <Album />
-      <Album />
-      <Album />
+      {albums.map((album,i) => <Album key={i} name={album.name} tracks={album.tracks}/>)} */}
     </div>
   );
 }
