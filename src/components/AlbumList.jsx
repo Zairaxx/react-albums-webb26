@@ -2,7 +2,7 @@ import Album from "./Album";
 
 export default function AlbumList() {
   return (
-    <div>
+    <div className="AlbumList">
       <h3>Album List</h3>
       <Album />
       <Album />

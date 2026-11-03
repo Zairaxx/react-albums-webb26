@@ -6,4 +6,4 @@ Beskrivning:
 
 3. Skapa en dynamisk lösning där du renderar ut en Album.jsx-komponent för varje album med hjälp av loopar och props.
 
-4. Extra-uppgift (vi går igenom nästa lektion)- Skapa ett state som visar och döljer varje enskilt album vid klick.
+4. Extra-uppgift (vi går igenom efteråt)- Skapa ett state som visar och döljer varje enskilt album vid klick.
